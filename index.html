@@ -3,16 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Exzakt IT Solutions - Professional Web Development Company</title>
+    <title>Tech Exzakt IT Solutions - Web Development Company</title>
     <link rel="icon" type="image/x-icon" href="./imgs/favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CDN (for quick test) -->
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Font Awesome (for hamburger icon) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         * {
@@ -145,7 +140,7 @@
         
         .hero-bg {
             background: linear-gradient(135deg, #059669 0%, #1e40af 100%);
-            position: relative;
+            position油: relative;
             overflow: hidden;
         }
         
@@ -172,48 +167,50 @@
         .contact-bg {
             background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
         }
+
+        /* Mobile Menu Styles */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
-  <!-- Navigation -->
-<nav class="navbar fixed top-0 left-0 right-0 z-50 py-4 px-6 shadow-lg bg-white">
-    <div class="container mx-auto flex justify-between items-center">
-        <!-- Logo -->
-        <div class="flex items-center space-x-3">
-            <img src="./imgs/logo.png" alt="Tech Exzakt IT Solutions" class="h-12 w-auto">
+    <!-- Navigation -->
+    <nav class="navbar fixed top-0 left-0 right-0 z-50 py-4 px-6 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="./imgs/logo.png" alt="Tech Exzakt IT Solutions" class="h-12 w-auto">
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
+                <a href="#services" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Services</a>
+                <a href="#team" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Team</a>
+                <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
         </div>
-
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex space-x-8">
-            <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
-            <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
-            <a href="#services" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Services</a>
-            <a href="#team" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Team</a>
-            <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden fixed top-16 right-0 w-3/4 max-w-xs bg-white shadow-lg">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
+                <a href="#services" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Services</a>
+                <a href="#team" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Team</a>
+                <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
+            </div>
         </div>
-
-        <!-- Mobile Hamburger -->
-        <button id="menuToggle" class="md:hidden text-gray-700 hover:text-green-600">
-            <i class="fas fa-bars text-xl"></i>
-        </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="md:hidden hidden flex-col space-y-4 px-6 pt-4 pb-6 bg-white shadow-lg">
-        <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
-        <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
-        <a href="#services" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Services</a>
-        <a href="#team" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Team</a>
-        <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
-    </div>
-</nav>
-
-
+    </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero-bg text-white py-32 px-6 min-h-screen flex items-center">
         <div class="container mx-auto text-center relative z-10">
-            <!--div class="logo-container inline-block mb-8 floating-animation"-->
             <div class="inline-block mb-8">
                 <img src="./imgs/logo_neon.png" alt="Tech Exzakt IT Solutions" class="h-20 w-auto">
             </div>
@@ -375,7 +372,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="service-card bg-white rounded-xl p-8 card-shadow">
-                    <div class="text-center">
+                    <div class "text-center">
                         <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                             <i class="fas fa-code text-white text-2xl"></i>
                         </div>
@@ -470,7 +467,7 @@
                         <ul class="text-left text-gray-600 space-y-2 mb-6">
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Professional Layout</li>
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Premium Materials</li>
-                            <li><i class="fas fa-check text-green-600 mr-2"></i> Double-Sided Options</li>
+                            <li><i class="fas fa-check text-green-acher-600 mr-2"></i> Double-Sided Options</li>
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Brand Alignment</li>
                         </ul>
                         <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold">
@@ -481,7 +478,7 @@
                 
                 <div class="service-card bg-white rounded-xl p-8 card-shadow">
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-16 h-16 bg-gradient Trang từ-indigo-400 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
                             <i class="fas fa-cogs text-white text-2xl"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-4">IT Consulting</h3>
@@ -530,9 +527,6 @@
                         <a href="https://www.linkedin.com/in/mann-kachhiya/" class="text-gray-400 hover:text-green-600 transition-colors">
                             <i class="fab fa-linkedin text-xl"></i>
                         </a>
-                        <!--a href="#" class="text-gray-400 hover:text-green-600 transition-colors">
-                            <i class="fab fa-twitter text-xl"></i>
-                    </a-->
                         <a href="https://mannkachhiya.github.io/" class="text-gray-400 hover:text-blue-600 transition-colors">
                             <i class="fab fa-github text-xl"></i>
                         </a>
@@ -556,9 +550,6 @@
                         <a href="https://www.linkedin.com/in/sanket-prajapati27/" class="text-gray-400 hover:text-blue-600 transition-colors">
                             <i class="fab fa-linkedin text-xl"></i>
                         </a>
-                        <!--a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
-                            <i class="fab fa-github text-xl"></i>
-                    </a-->
                         <a href="mailto:sanket2742003@gmail.com" class="text-gray-400 hover:text-blue-600 transition-colors">
                             <i class="fas fa-envelope text-xl"></i>
                         </a>
@@ -618,156 +609,12 @@
         </div>
     </section>
 
-    <!-- Portfolio Section ->
-    <section id="portfolio" class="py-20 px-6 bg-gray-50">
-        <div class="container mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 fade-in">
-                    Our <span class="text-green-600">Portfolio</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
-                    Explore our collection of 50+ successful projects that showcase our expertise and creativity
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="project-card rounded-xl overflow-hidden card-shadow">
-                    <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                        <i class="fas fa-shopping-cart text-white text-4xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">E-Commerce Platform</h3>
-                        <p class="text-gray-600 mb-4">
-                            Modern online store with advanced features including payment gateway integration, inventory management, and responsive design.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">React</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Node.js</span>
-                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">MongoDB</span>
-                        </div>
-                        <button class="btn-primary w-full py-2 rounded-lg text-white font-semibold">
-                            View Project
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="project-card rounded-xl overflow-hidden card-shadow">
-                    <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                        <i class="fas fa-building text-white text-4xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Corporate Website</h3>
-                        <p class="text-gray-600 mb-4">
-                            Professional corporate website with content management system, multi-language support, and SEO optimization.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">WordPress</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">PHP</span>
-                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">MySQL</span>
-                        </div>
-                        <button class="btn-primary w-full py-2 rounded-lg text-white font-semibold">
-                            View Project
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="project-card rounded-xl overflow-hidden card-shadow">
-                    <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
-                        <i class="fas fa-mobile-alt text-white text-4xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Mobile App Interface</h3>
-                        <p class="text-gray-600 mb-4">
-                            Intuitive mobile application with modern UI/UX design, real-time features, and cross-platform compatibility.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">React Native</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Firebase</span>
-                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Redux</span>
-                        </div>
-                        <button class="btn-primary w-full py-2 rounded-lg text-white font-semibold">
-                            View Project
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="project-card rounded-xl overflow-hidden card-shadow">
-                    <div class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
-                        <i class="fas fa-chart-line text-white text-4xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Analytics Dashboard</h3>
-                        <p class="text-gray-600 mb-4">
-                            Comprehensive analytics dashboard with real-time data visualization, reporting tools, and user management.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Vue.js</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
-                        </div>
-                        <button class="btn-primary w-full py-2 rounded-lg text-white font-semibold">
-                            View Project
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="project-card rounded-xl overflow-hidden card-shadow">
-                    <div class="h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
-                        <i class="fas fa-utensils text-white text-4xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Restaurant Management</h3>
-                        <p class="text-gray-600 mb-4">
-                            Complete restaurant management system with online ordering, table booking, and inventory tracking features.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Angular</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Express.js</span>
-                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">MongoDB</span>
-                        </div>
-                        <button class="btn-primary w-full py-2 rounded-lg text-white font-semibold">
-                            View Project
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="project-card rounded-xl overflow-hidden card-shadow">
-                    <div class="h-48 bg-gradient-to-br from-indigo-400 to-indigo-600 flex items-center justify-center">
-                        <i class="fas fa-graduation-cap text-white text-4xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Learning Management System</h3>
-                        <p class="text-gray-600 mb-4">
-                            Educational platform with course management, student tracking, video streaming, and assessment tools.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Django</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
-                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Redis</span>
-                        </div>
-                        <button class="btn-primary w-full py-2 rounded-lg text-white font-semibold">
-                            View Project
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <p class="text-gray-600 mb-6">Ready to see more of our work?</p>
-                <button class="btn-secondary px-8 py-3 rounded-full text-white font-semibold">
-                    <i class="fas fa-eye mr-2"></i>
-                    View All Projects
-                </button>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact" class="contact-bg py-20 px-6 text-white">
         <div class="container mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4 fade-in">
-                    Get In <span class="text-green-400">Touch</span>
+                    Get In <span class="text-green-400">Touch</(span>
                 </h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto fade-in">
                     Ready to start your next project? Contact us today and let's bring your vision to life
@@ -778,7 +625,7 @@
                 <div class="slide-in">
                     <h3 class="text-2xl font-bold mb-6">Let's Start a Conversation</h3>
                     <p class="text-gray-300 mb-8">
-                        We're here to help you transform your ideas into powerful digital solutions. 
+                        We're here to help you ditransform your ideas into powerful digital solutions. 
                         Reach out to us and let's discuss how we can help grow your business.
                     </p>
                     
@@ -792,26 +639,6 @@
                                 <p class="text-gray-300">+91 76009 78440</p>
                             </div>
                         </div>
-                        
-                        <!--div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                                <i class="fas fa-envelope text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Email</h4>
-                                <p class="text-gray-300">info@techexzakt.com</p>
-                            </div>
-                    </div>
-                        
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
-                                <i class="fas fa-map-marker-alt text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Address</h4>
-                                <p class="text-gray-300">123 Tech Street, Digital City, TC 12345</p>
-                            </div>
-                    </div-->
                         
                         <div class="flex items-center space-x-4">
                             <div class="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center">
@@ -846,11 +673,11 @@
                 <div class="slide-in">
                     <div class="bg-gray-800 rounded-xl p-8 card-shadow">
                         <h3 class="text-2xl font-bold mb-6">Send us a Message</h3>
-                        <form class="space-y-6">
+                        <form class="space-y-6DOF: 0px; padding: 0px; margin: 0px; } .space-y-6 {
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-sm font-medium mb-2">First Name</label>
-                                    <input type="text" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="First Name ">
+                                    <input type="text" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="First Name">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium mb-2">Last Name</label>
@@ -945,14 +772,6 @@
                             <i class="fas fa-phone mr-2"></i>
                             +91 76009 78440
                         </li>
-                        <!--li class="flex items-center">
-                            <i class="fas fa-envelope mr-2"></i>
-                            info@techexzakt.com
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2"></i>
-                            123 Tech Street, Digital City
-                    </li-->
                         <li class="flex items-center">
                             <i class="fas fa-clock mr-2"></i>
                             Mon - Fri: 9:00 AM - 6:00 PM
@@ -962,7 +781,7 @@
             </div>
             
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Tech Exzakt IT Solutions. All rights reserved. | Designed by Mann Kachhiya</p>
+                <p>© 2024 Tech Exzakt IT Solutions. All rights reserved. | Designed by Mann Kachhiya</p>
             </div>
         </div>
     </footer>
@@ -973,6 +792,18 @@
     </button>
 
     <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('open');
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('open', !isOpen);
+            menuToggle.setAttribute('aria-expanded', !isOpen);
+            menuToggle.innerHTML = !isOpen ? '<i class="fas fa-times text-xl"></i>' : '<i class="fas fa-bars text-xl"></i>';
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -983,6 +814,11 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Close mobile menu after clicking a link
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuToggle.innerHTML = '<i class="fas fa-bars text-xl"></i>';
                 }
             });
         });
@@ -1007,16 +843,6 @@
             });
         });
 
-        // Mobile menu toggle
-        const menuToggle = document.querySelector('.md\\:hidden');
-        const nav = document.querySelector('.hidden.md\\:flex');
-        
-        if (menuToggle && nav) {
-            menuToggle.addEventListener('click', () => {
-                nav.classList.toggle('hidden');
-            });
-        }
-
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
@@ -1031,7 +857,6 @@
             });
         }, observerOptions);
 
-        // Observe elements for animation
         document.querySelectorAll('.service-card, .team-card, .project-card').forEach(el => {
             observer.observe(el);
         });
@@ -1045,7 +870,7 @@
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= target) {
-                    element.textContent = target + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+                    element.textContent = target + (element.textContent.includes('+') ? '|' : element.textContent.includes('%') ? '%' : '');
                     clearInterval(timer);
                 } else {
                     element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
@@ -1075,15 +900,5 @@
             alert('Thank you for your message! We will get back to you soon.');
         });
     </script>
-
-<script>
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-</script>
-
 </body>
 </html>
