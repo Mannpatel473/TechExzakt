@@ -827,13 +827,23 @@
                 </div>
 
 
+                <script type="text/javascript">
+  var submitted = false;
+</script>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+  onload="if(submitted) { 
+    alert('Thank you for your message! We will get back to you soon..'); 
+    window.location.reload(); 
+  }">
+</iframe>
 
 
 
                 <div class="slide-in">
                     <div class="bg-gray-800 rounded-xl p-8 card-shadow">
                         <h3 class="text-2xl font-bold mb-6">Send us a Message</h3>
-                        <form class="space-y-6" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScEyPCADAALvTNZJowNH3iMQefipjejsCWzBqYsPyDz1gUAXw/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true"  class="form" id="form1">
+                        <form class="space-y-6" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScEyPCADAALvTNZJowNH3iMQefipjejsCWzBqYsPyDz1gUAXw/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true" id="form1">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-sm font-medium mb-2">Your Name <span style="color: red;">*</span></label>
