@@ -169,25 +169,38 @@
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="navbar fixed top-0 left-0 right-0 z-50 py-4 px-6 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <img src="./imgs/logo.png" alt="Tech Exzakt IT Solutions" class="h-12 w-auto">
-            </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
-                <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
-                <a href="#services" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Services</a>
-                <a href="#team" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Team</a>
-                <!--a href="#portfolio" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Portfolio</a-->
-                <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
-            </div>
-            <button class="md:hidden text-gray-700 hover:text-green-600">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
+   <!-- Navigation -->
+<nav class="navbar fixed top-0 left-0 right-0 z-50 py-4 px-6 shadow-lg bg-white">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <img src="./imgs/logo.png" alt="Tech Exzakt IT Solutions" class="h-12 w-auto">
         </div>
-    </nav>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8">
+            <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
+            <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
+            <a href="#services" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Services</a>
+            <a href="#team" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Team</a>
+            <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
+        </div>
+
+        <!-- Hamburger Icon (Mobile) -->
+        <button id="menu-btn" class="md:hidden text-gray-700 hover:text-green-600">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden flex-col space-y-4 px-6 pb-4 bg-white">
+        <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
+        <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
+        <a href="#services" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Services</a>
+        <a href="#team" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Team</a>
+        <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
+    </div>
+</nav>
+
 
     <!-- Hero Section -->
     <section id="home" class="hero-bg text-white py-32 px-6 min-h-screen flex items-center">
@@ -1054,5 +1067,15 @@
             alert('Thank you for your message! We will get back to you soon.');
         });
     </script>
+
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
+
 </body>
 </html>
