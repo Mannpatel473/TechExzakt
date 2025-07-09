@@ -825,30 +825,43 @@
                         </div>
                     </div>
                 </div>
+
+
+<script type="text/javascript">
+  var submitted = false;
+</script>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display: none" 
+  onload="if(submitted){alert('Thank you for your message! I will get back to you soon.'); window.location.reload();}">
+</iframe>
+
+
+
+
                 
                 <div class="slide-in">
                     <div class="bg-gray-800 rounded-xl p-8 card-shadow">
                         <h3 class="text-2xl font-bold mb-6">Send us a Message</h3>
-                        <form class="space-y-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <form class="space-y-6" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScEyPCADAALvTNZJowNH3iMQefipjejsCWzBqYsPyDz1gUAXw/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true"  class="form" id="form1">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label class="block text-sm font-medium mb-2">First Name</label>
-                                    <input type="text" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="First Name">
+                                    <label class="block text-sm font-medium mb-2">Your Name <span style="color: red;">*</span></label>
+                                    <input type="text" name="entry.1529527775" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="Your Name" required>
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium mb-2">Last Name</label>
-                                    <input type="text" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="Last Name">
+                                    <label class="block text-sm font-medium mb-2">Phone <span style="color: red;">*</span></label>
+                                    <input type="number" name="entry.804126154" maxlength="13" pattern="\d{10}"  class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="+91 9876543210" required>
                                 </div>
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium mb-2">Email</label>
-                                <input type="email" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="Email@gmail.com">
+                                <label class="block text-sm font-medium mb-2">Email <span style="color: red;">*</span></label>
+                                <input type="email" name="entry.1621108615" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="Email@gmail.com" required>
                             </div>
                             
                             <div>
-                                <label class="block text-sm font-medium mb-2">Subject</label>
-                                <select class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white">
+                                <label class="block text-sm font-medium mb-2">Subject <span style="color: red;">*</span></label>
+                                <select class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" required>
                                     <option>Web Development</option>
                                     <option>Logo Design</option>
                                     <option>Brochure Design</option>
@@ -860,9 +873,9 @@
                             
                             <div>
                                 <label class="block text-sm font-medium mb-2">Message</label>
-                                <textarea rows="4" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="Tell us about your project..."></textarea>
+                                <textarea rows="4" name="entry.346645786" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="Tell us about your project..."></textarea>
                             </div>
-                            
+                            <input type="hidden" id="States" name="entry.930018570" value="1">
                             <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold text-white">
                                 <i class="fas fa-paper-plane mr-2"></i>
                                 Send Message
@@ -946,6 +959,41 @@
     <button id="scrollTop" class="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("form1");
+
+    // This container will hold dynamically added hidden inputs
+    const hiddenInputContainer = document.createElement("div");
+    hiddenInputContainer.id = "hidden-inputs";
+    form.appendChild(hiddenInputContainer);
+
+    function updateHiddenInputs() {
+        // Clear previous hidden inputs
+        hiddenInputContainer.innerHTML = "";
+
+        // Find all selected items with the class `.item.checked`
+        const checkedItems = document.querySelectorAll(".item.checked");
+
+        if (checkedItems.length > 0) {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "entry.1599511640"; // Replace with your actual Google Form entry ID
+            input.value = Array.from(checkedItems)
+                .map(item => item.getAttribute("data-value"))
+                .join(", ");
+            hiddenInputContainer.appendChild(input);
+        }
+    }
+
+    // Before form submission, update the hidden inputs
+    form.addEventListener("submit", function () {
+        updateHiddenInputs();
+    });
+});
+</script>
+
 
     <script>
         // Mobile menu toggle
