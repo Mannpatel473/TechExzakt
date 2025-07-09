@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <style>
         * {
             font-family: 'Inter', sans-serif;
@@ -166,29 +167,64 @@
         .contact-bg {
             background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
         }
+
+
+/* Mobile Dropdown Menu Styles */
+#mobile-menu {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+#mobile-menu.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Hamburger and Close Icon Animation */
+.toggle-menu .fa-bars,
+.toggle-menu .fa-times {
+    transition: opacity 0.3s ease;
+}
+
+.toggle-menu.active .fa-bars {
+    opacity: 0;
+    display: none;
+}
+
+.toggle-menu.active .fa-times {
+    opacity: 1;
+    display: inline;
+}
+
+.toggle-menu .fa-times {
+    opacity: 0;
+    display: none;
+}
+
+/* Ensure navbar stays on top */
+.navbar {
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Mobile menu link hover effect */
+#mobile-menu a {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+#mobile-menu a:hover {
+    background-color: #f1f5f9;
+}
+
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation ->
-    <nav class="navbar fixed top-0 left-0 right-0 z-50 py-4 px-6 shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <img src="./imgs/logo.png" alt="Tech Exzakt IT Solutions" class="h-12 w-auto">
-            </div>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
-                <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
-                <a href="#services" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Services</a>
-                <a href="#team" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Team</a>
-                <!--a href="#portfolio" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Portfolio</a->
-                <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
-            </div>
-            <button class="md:hidden text-gray-700 hover:text-green-600">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-        </div>
-    </nav>
-<!-- Navigation -->
+    <!-- Navigation -->
 <nav class="navbar fixed top-0 left-0 right-0 z-50 py-4 px-6 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
         <div class="flex items-center space-x-3">
@@ -199,22 +235,21 @@
             <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
             <a href="#services" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Services</a>
             <a href="#team" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Team</a>
-            <!--a href="#portfolio" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Portfolio</a-->
             <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
         </div>
         <button class="md:hidden text-gray-700 toggle-menu" aria-label="Toggle navigation menu">
             <i class="fas fa-bars text-xl"></i>
+            <i class="fas fa-times text-xl hidden"></i>
         </button>
     </div>
-    <!-- Mobile Menu -->
+    <!-- Mobile Dropdown Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute top-16 left-0 right-0 z-50">
-        <div class="flex flex-col items-center space-y-4 py-6">
-            <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
-            <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
-            <a href="#services" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Services</a>
-            <a href="#team" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Team</a>
-            <!--a href="#portfolio" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Portfolio</a-->
-            <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
+        <div class="flex flex-col items-center py-6 space-y-4">
+            <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors font-medium text-lg">Home</a>
+            <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors font-medium text-lg">About</a>
+            <a href="#services" class="text-gray-700 hover:text-green-600 transition-colors font-medium text-lg">Services</a>
+            <a href="#team" class="text-gray-700 hover:text-green-600 transition-colors font-medium text-lg">Team</a>
+            <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors font-medium text-lg">Contact</a>
         </div>
     </div>
 </nav>
