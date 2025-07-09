@@ -176,6 +176,40 @@
         #mobile-menu.open {
             transform: translateX(0);
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #4b5563;
+        }
+        .modal-close:hover {
+            color: #059669;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -238,7 +272,7 @@
                     <span>10+ Expert Team</span>
                 </div>
                 <div class="flex items-center">
-                    <i class="fas fa-check-circle text-green-300 mr-2"></i>
+                    <i class="fas fa-check-circle textbg-green-300 mr-2"></i>
                     <span>50+ Projects Completed</span>
                 </div>
                 <div class="flex items-center">
@@ -249,7 +283,7 @@
         </div>
     </section>
 
-<!-- Stats Section -->
+    <!-- Stats Section -->
     <section class="stats-bg py-16 px-6">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
@@ -276,7 +310,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- About Section -->
     <section id="about" class="py-20 px-6 bg-white">
@@ -373,7 +406,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="service-card bg-white rounded-xl p-8 card-shadow">
-                    <div class "text-center">
+                    <div class="text-center">
                         <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                             <i class="fas fa-code text-white text-2xl"></i>
                         </div>
@@ -387,7 +420,7 @@
                             <li><i class="fas fa-check text-green-600 mr-2"></i> SEO Optimized</li>
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Fast Loading</li>
                         </ul>
-                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold">
+                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="openModal('web-dev-modal')">
                             Learn More
                         </button>
                     </div>
@@ -408,7 +441,7 @@
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Multiple Formats</li>
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Revisions Included</li>
                         </ul>
-                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold">
+                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="openModal('logo-design-modal')">
                             Learn More
                         </button>
                     </div>
@@ -429,7 +462,7 @@
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Print-Ready Files</li>
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Digital Formats</li>
                         </ul>
-                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold">
+                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="openModal('brochure-design-modal')">
                             Learn More
                         </button>
                     </div>
@@ -450,7 +483,7 @@
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Brand Consistency</li>
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Quick Turnaround</li>
                         </ul>
-                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold">
+                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="openModal('packaging-printing-modal')">
                             Learn More
                         </button>
                     </div>
@@ -468,10 +501,10 @@
                         <ul class="text-left text-gray-600 space-y-2 mb-6">
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Professional Layout</li>
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Premium Materials</li>
-                            <li><i class="fas fa-check text-green-acher-600 mr-2"></i> Double-Sided Options</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Double-Sided Options</li>
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Brand Alignment</li>
                         </ul>
-                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold">
+                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="openModal('business-card-modal')">
                             Learn More
                         </button>
                     </div>
@@ -479,7 +512,7 @@
                 
                 <div class="service-card bg-white rounded-xl p-8 card-shadow">
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient Trang từ-indigo-400 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
                             <i class="fas fa-cogs text-white text-2xl"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-4">IT Consulting</h3>
@@ -492,7 +525,7 @@
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Implementation Support</li>
                             <li><i class="fas fa-check text-green-600 mr-2"></i> Ongoing Maintenance</li>
                         </ul>
-                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold">
+                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="openModal('it-consulting-modal')">
                             Learn More
                         </button>
                     </div>
@@ -500,6 +533,128 @@
             </div>
         </div>
     </section>
+
+    <!-- Modals for Services -->
+    <div id="web-dev-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('web-dev-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Web Development</h3>
+            <p class="text-gray-600 mb-6">
+                Our web development services are tailored to create robust, scalable, and user-friendly websites and applications. 
+                We leverage the latest technologies like React, Angular, Node.js, and more to build solutions that meet your business needs.
+            </p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Custom website and web app development</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> E-commerce solutions with secure payment gateways</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Content Management Systems (CMS) integration</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Performance optimization and SEO best practices</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Cross-browser and device compatibility</li>
+            </ul>
+            <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="window.location.href='#contact'">
+                Contact Us
+            </button>
+        </div>
+    </div>
+
+    <div id="logo-design-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('logo-design-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Logo Design</h3>
+            <p class="text-gray-600 mb-6">
+                We craft unique and memorable logos that reflect your brand's identity. Our design process involves collaboration with you to ensure the final product resonates with your target audience.
+            </p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Multiple design concepts to choose from</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Unlimited revisions until satisfaction</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Vector and raster formats for all use cases</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Brand style guide creation</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Fast delivery within 5-7 business days</li>
+            </ul>
+            <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="window.location.href='#contact'">
+                Contact Us
+            </button>
+        </div>
+    </div>
+
+    <div id="brochure-design-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('brochure-design-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Brochure Design</h3>
+            <p class="text-gray-600 mb-6">
+                Our brochure design services create visually appealing and informative materials to promote your business effectively. We focus on clean layouts and compelling visuals to engage your audience.
+            </p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Custom designs for print and digital formats</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> High-resolution graphics and images</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Folded or flat brochure options</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Brand-aligned color schemes and typography</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Print-ready files with bleed and crop marks</li>
+            </ul>
+            <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="window.location.href='#contact'">
+                Contact Us
+            </button>
+        </div>
+    </div>
+
+    <div id="packaging-printing-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('packaging-printing-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Packaging Printing</h3>
+            <p class="text-gray-600 mb-6">
+                We provide professional packaging design services with digital copies to make your products stand out. Our designs focus on brand consistency and market appeal.
+            </p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Custom packaging designs for various product types</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Digital mockups for review</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Eco-friendly design options</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Alignment with brand guidelines</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Fast turnaround for urgent projects</li>
+            </ul>
+            <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="window.location.href='#contact'">
+                Contact Us
+            </button>
+        </div>
+    </div>
+
+    <div id="business-card-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('business-card-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Business Card Design</h3>
+            <p class="text-gray-600 mb-6">
+                Our business card designs are crafted to leave a lasting impression. We combine creativity and professionalism to create cards that represent your brand effectively.
+            </p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Unique and professional layouts</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Premium material recommendations</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Double-sided and single-sided options</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> QR code integration for digital contact sharing</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Print-ready files with high resolution</li>
+            </ul>
+            <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="window.location.href='#contact'">
+                Contact Us
+            </button>
+        </div>
+    </div>
+
+    <div id="it-consulting-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('it-consulting-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">IT Consulting</h3>
+            <p class="text-gray-600 mb-6">
+                Our IT consulting services help you navigate complex technology decisions. We provide strategic guidance and support to optimize your digital infrastructure and achieve business goals.
+            </p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Comprehensive technology audits</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Custom IT strategy development</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Cloud migration and integration</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Cybersecurity assessments and solutions</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Ongoing technical support and maintenance</li>
+            </ul>
+            <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="window.location.href='#contact'">
+                Contact Us
+            </button>
+        </div>
+    </div>
 
     <!-- Team Section -->
     <section id="team" class="py-20 px-6 bg-white">
@@ -515,10 +670,9 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                 <div class="team-card rounded-xl p-8 text-center card-shadow">
-                   <div class="w-32 h-32 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-    <img src="./imgs/Mann.jpg" alt="Profile" class="w-30 h-30 rounded-full object-cover" />
-</div>
-
+                    <div class="w-32 h-32 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <img src="./imgs/Mann.jpg" alt="Profile" class="w-30 h-30 rounded-full object-cover" />
+                    </div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-2">Mann Kachhiya</h3>
                     <p class="text-green-600 font-semibold mb-4">Founder & CEO</p>
                     <p class="text-gray-600 mb-6">
@@ -540,8 +694,8 @@
                 
                 <div class="team-card rounded-xl p-8 text-center card-shadow">
                     <div class="w-32 h-32 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-    <img src="./imgs/Sanket.jpg" alt="Profile" class="w-30 h-30 rounded-full object-cover" />
-</div>
+                        <img src="./imgs/Sanket.jpg" alt="Profile" class="w-30 h-30 rounded-full object-cover" />
+                    </div>
                     <h3 class="text-2xl font-bold text-gray-800 mb-2">Sanket Prajapati</h3>
                     <p class="text-blue-600 font-semibold mb-4">Co-Founder & CTO</p>
                     <p class="text-gray-600 mb-6">
@@ -616,7 +770,7 @@
         <div class="container mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold mb-4 fade-in">
-                    Get In <span class="text-green-400">Touch</(span>
+                    Get In <span class="text-green-400">Touch</span>
                 </h2>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto fade-in">
                     Ready to start your next project? Contact us today and let's bring your vision to life
@@ -627,7 +781,7 @@
                 <div class="slide-in">
                     <h3 class="text-2xl font-bold mb-6">Let's Start a Conversation</h3>
                     <p class="text-gray-300 mb-8">
-                        We're here to help you ditransform your ideas into powerful digital solutions. 
+                        We're here to help you transform your ideas into powerful digital solutions. 
                         Reach out to us and let's discuss how we can help grow your business.
                     </p>
                     
@@ -675,7 +829,7 @@
                 <div class="slide-in">
                     <div class="bg-gray-800 rounded-xl p-8 card-shadow">
                         <h3 class="text-2xl font-bold mb-6">Send us a Message</h3>
-                        <form class="space-y-6DOF: 0px; padding: 0px; margin: 0px; } .space-y-6 {
+                        <form class="space-y-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-sm font-medium mb-2">First Name</label>
@@ -685,10 +839,11 @@
                                     <label class="block text-sm font-medium mb-2">Last Name</label>
                                     <input type="text" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="Last Name">
                                 </div>
+                            </div>
                             
                             <div>
                                 <label class="block text-sm font-medium mb-2">Email</label>
-                                <input type="email" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="Email@gamil.com">
+                                <input type="email" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="Email@gmail.com">
                             </div>
                             
                             <div>
@@ -893,6 +1048,38 @@
 
         document.querySelectorAll('.counter').forEach(counter => {
             counterObserver.observe(counter);
+        });
+
+        // Modal functionality
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            }
         });
 
         // Form submission
