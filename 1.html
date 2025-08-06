@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Exzakt IT Solutions - Web Development Company</title>
+    <link rel="icon" type="image/x-icon" href="./imgs/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #059669 0%, #1e40af 100%);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.8s ease-in-out;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(-30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .card-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #059669;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #059669;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .team-card {
+            background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            background: linear-gradient(145deg, #e2e8f0, #cbd5e1);
+            transform: translateY(-10px);
+        }
+        
+        .project-card {
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .logo-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #059669, #065f46);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #065f46, #059669);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+        }
+        
+        .floating-animation {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #059669 0%, #1e40af 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .stats-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .contact-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+
+        /* Mobile Menu Styles */
+        #mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #4b5563;
+        }
+        .modal-close:hover {
+            color: #059669;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="navbar fixed top-0 left-0 right-0 z-50 py-4 px-6 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="./imgs/logo.png" alt="Tech Exzakt IT Solutions" class="h-12 w-auto">
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
+                <a href="#services" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Services</a>
+                <a href="#team" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Team</a>
+                <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden md:hidden fixed top-16 right-0 w-3/4 max-w-xs bg-white shadow-lg">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="#home" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-green-600 transition-colors font-medium">About</a>
+                <a href="#services" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Services</a>
+                <a href="#team" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Team</a>
+                <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white py-32 px-6 min-h-screen flex items-center">
+        <div class="container mx-auto text-center relative z-10">
+            <div class="inline-block mb-8">
+                <img src="./imgs/logo_neon.png" alt="Tech Exzakt IT Solutions" class="h-20 w-auto">
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in">
+                Welcome to <span class="text-yellow-300">Tech Exzakt</span><br>
+                IT Solutions
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto fade-in opacity-90">
+                Leading Web Development Company delivering innovative digital solutions with precision and expertise. 
+                Transform your business with our cutting-edge technology services.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 fade-in">
+                <button onclick="window.location.href='#about'" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold text-white">
+                    <i class="fas fa-rocket mr-2"></i>
+                    Get Started
+                </button>
+                <button onclick="window.location.href='#services'" class="btn-secondary px-8 py-4 rounded-full text-lg font-semibold text-white">
+                    <i class="fas fa-play mr-2"></i>
+                    View Our Work
+                </button>
+            </div>
+            <div class="flex justify-center space-x-8 text-sm opacity-80">
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-300 mr-2"></i>
+                    <span>10+ Expert Team</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle textbg-green-300 mr-2"></i>
+                    <span>50+ Projects Completed</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-check-circle text-green-300 mr-2"></i>
+                    <span>24/7 Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-bg py-16 px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in">
+                    <div class="counter pulse-animation">50+</div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Projects Completed</h3>
+                    <p class="text-gray-600">Successfully delivered projects across various industries</p>
+                </div>
+                <div class="fade-in">
+                    <div class="counter pulse-animation">10+</div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Expert Team</h3>
+                    <p class="text-gray-600">Skilled professionals dedicated to your success</p>
+                </div>
+                <div class="fade-in">
+                    <div class="counter pulse-animation">100%</div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Client Satisfaction</h3>
+                    <p class="text-gray-600">Committed to delivering excellence in every project</p>
+                </div>
+                <div class="fade-in">
+                    <div class="counter pulse-animation">24/7</div>
+                    <h3 class="text-xl font-semibold text-gray-700 mb-2">Support</h3>
+                    <p class="text-gray-600">Round-the-clock assistance for all your needs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 fade-in">
+                    About <span class="text-green-600">Tech Exzakt</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
+                    We are a leading web development company with over 10 skilled professionals and 50+ completed projects, 
+                    delivering innovative digital solutions with precision and expertise.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="slide-in">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6">Our Mission</h3>
+                    <p class="text-lg text-gray-600 mb-6">
+                        At Tech Exzakt IT Solutions, we specialize in transforming ideas into powerful digital experiences. 
+                        Our team of 10+ expert developers and designers work collaboratively to deliver solutions that 
+                        exceed expectations and drive business growth.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-code text-green-600 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Expert Development</h4>
+                                <p class="text-gray-600 text-sm">Cutting-edge technology solutions</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-users text-blue-600 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Skilled Team</h4>
+                                <p class="text-gray-600 text-sm">10+ experienced professionals</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-trophy text-yellow-600 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Proven Results</h4>
+                                <p class="text-gray-600 text-sm">50+ successful projects</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-clock text-purple-600 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Timely Delivery</h4>
+                                <p class="text-gray-600 text-sm">Always on time, every time</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slide-in">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl card-shadow">
+                            <i class="fas fa-laptop-code text-green-600 text-3xl mb-4"></i>
+                            <h4 class="font-semibold text-gray-800 mb-2">Web Development</h4>
+                            <p class="text-gray-600 text-sm">Custom websites and web applications</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl card-shadow">
+                            <i class="fas fa-paint-brush text-blue-600 text-3xl mb-4"></i>
+                            <h4 class="font-semibold text-gray-800 mb-2">Design Services</h4>
+                            <p class="text-gray-600 text-sm">Creative design solutions</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl card-shadow">
+                            <i class="fas fa-mobile-alt text-purple-600 text-3xl mb-4"></i>
+                            <h4 class="font-semibold text-gray-800 mb-2">Mobile Ready</h4>
+                            <p class="text-gray-600 text-sm">Responsive and mobile-first approach</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-xl card-shadow">
+                            <i class="fas fa-headset text-yellow-600 text-3xl mb-4"></i>
+                            <h4 class="font-semibold text-gray-800 mb-2">24/7 Support</h4>
+                            <p class="text-gray-600 text-sm">Always here when you need us</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 fade-in">
+                    Our <span class="text-green-600">Services</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
+                    We offer comprehensive digital solutions to help your business thrive in the digital world
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-white rounded-xl p-8 card-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-code text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Web Development</h3>
+                        <p class="text-gray-600 mb-6">
+                            Custom web applications and websites built with modern technologies and best practices for optimal performance and user experience.
+                        </p>
+                        <ul class="text-left text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Responsive Design</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Modern Frameworks</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> SEO Optimized</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Fast Loading</li>
+                        </ul>
+                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="openModal('web-dev-modal')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl p-8 card-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-paint-brush text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Logo Design</h3>
+                        <p class="text-gray-600 mb-6">
+                            Professional logo design services that capture your brand's essence and create memorable visual identities for your business.
+                        </p>
+                        <ul class="text-left text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Custom Concepts</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Brand Guidelines</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Multiple Formats</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Revisions Included</li>
+                        </ul>
+                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="openModal('logo-design-modal')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl p-8 card-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-file-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Brochure Design</h3>
+                        <p class="text-gray-600 mb-6">
+                            Eye-catching brochure designs that effectively communicate your message and showcase your products or services professionally.
+                        </p>
+                        <ul class="text-left text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Creative Layouts</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> High-Quality Graphics</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Print-Ready Files</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Digital Formats</li>
+                        </ul>
+                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="openModal('brochure-design-modal')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl p-8 card-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-box text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Packaging Printing</h3>
+                        <p class="text-gray-600 mb-6">
+                            Professional packaging design services with digital copies for your products, ensuring your brand stands out on shelves.
+                        </p>
+                        <ul class="text-left text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Digital Copy Only</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Custom Designs</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Brand Consistency</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Quick Turnaround</li>
+                        </ul>
+                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="openModal('packaging-printing-modal')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl p-8 card-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-id-card text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Business Card Design</h3>
+                        <p class="text-gray-600 mb-6">
+                            Professional business card designs that make lasting impressions and effectively represent your brand in networking situations.
+                        </p>
+                        <ul class="text-left text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Professional Layout</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Premium Materials</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Double-Sided Options</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Brand Alignment</li>
+                        </ul>
+                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="openModal('business-card-modal')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card bg-white rounded-xl p-8 card-shadow">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-cogs text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">IT Consulting</h3>
+                        <p class="text-gray-600 mb-6">
+                            Expert IT consulting services to help you make informed technology decisions and optimize your digital infrastructure.
+                        </p>
+                        <ul class="text-left text-gray-600 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Technology Assessment</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Strategic Planning</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Implementation Support</li>
+                            <li><i class="fas fa-check text-green-600 mr-2"></i> Ongoing Maintenance</li>
+                        </ul>
+                        <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="openModal('it-consulting-modal')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals for Services -->
+    <div id="web-dev-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('web-dev-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Web Development</h3>
+            <p class="text-gray-600 mb-6">
+                Our web development services are tailored to create robust, scalable, and user-friendly websites and applications. 
+                We leverage the latest technologies like HTML, CSS, PHP, React, Angular, Node.js, and more to build solutions that meet your business needs.
+            </p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Custom website and web app development</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Web Hosting & Domain Management</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Migration & Upgrade Services</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Performance optimization and SEO best practices</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Cross-browser and device compatibility</li>
+            </ul>
+            <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="window.location.href='#contact'">
+                Contact Us
+            </button>
+        </div>
+    </div>
+
+    <div id="logo-design-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('logo-design-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Logo Design</h3>
+            <p class="text-gray-600 mb-6">
+                We craft unique and memorable logos that reflect your brand's identity. Our design process involves collaboration with you to ensure the final product resonates with your target audience.
+            </p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Multiple design concepts to choose from</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Unlimited revisions until satisfaction</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Vector and raster formats for all use cases</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Brand style guide creation</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Fast delivery within 5-7 business days</li>
+            </ul>
+            <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="window.location.href='#contact'">
+                Contact Us
+            </button>
+        </div>
+    </div>
+
+    <div id="brochure-design-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('brochure-design-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Brochure Design</h3>
+            <p class="text-gray-600 mb-6">
+                Our brochure design services create visually appealing and informative materials to promote your business effectively. We focus on clean layouts and compelling visuals to engage your audience.
+            </p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Custom designs for print and digital formats</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> High-resolution graphics and images</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Folded or flat brochure options</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Brand-aligned color schemes and typography</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Print-ready files with bleed and crop marks</li>
+            </ul>
+            <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="window.location.href='#contact'">
+                Contact Us
+            </button>
+        </div>
+    </div>
+
+    <div id="packaging-printing-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('packaging-printing-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Packaging Printing</h3>
+            <p class="text-gray-600 mb-6">
+                We provide professional packaging design services with digital copies to make your products stand out. Our designs focus on brand consistency and market appeal.
+            </p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Custom packaging designs for various product types</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Digital mockups for review</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Eco-friendly design options</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Alignment with brand guidelines</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Fast turnaround for urgent projects</li>
+            </ul>
+            <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="window.location.href='#contact'">
+                Contact Us
+            </button>
+        </div>
+    </div>
+
+    <div id="business-card-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('business-card-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Business Card Design</h3>
+            <p class="text-gray-600 mb-6">
+                Our business card designs are crafted to leave a lasting impression. We combine creativity and professionalism to create cards that represent your brand effectively.
+            </p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Unique and professional layouts</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Premium material recommendations</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Double-sided and single-sided options</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> QR code integration for digital contact sharing</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Print-ready files with high resolution</li>
+            </ul>
+            <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="window.location.href='#contact'">
+                Contact Us
+            </button>
+        </div>
+    </div>
+
+    <div id="it-consulting-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('it-consulting-modal')">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">IT Consulting</h3>
+            <p class="text-gray-600 mb-6">
+                Our IT consulting services help you navigate complex technology decisions. We provide strategic guidance and support to optimize your digital infrastructure and achieve business goals.
+            </p>
+            <ul class="text-gray-600 space-y-2 mb-6">
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Comprehensive technology audits</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Custom IT strategy development</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Cloud migration and integration</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Cybersecurity assessments and solutions</li>
+                <li><i class="fas fa-check text-green-600 mr-2"></i> Ongoing technical support and maintenance</li>
+            </ul>
+            <button class="btn-primary w-full py-3 rounded-lg text-white font-semibold" onclick="window.location.href='#contact'">
+                Contact Us
+            </button>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 fade-in">
+                    Meet Our <span class="text-green-600">Team</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in">
+                    Our skilled team of 10+ professionals is dedicated to delivering exceptional results for every project
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="team-card rounded-xl p-8 text-center card-shadow">
+                    <div class="w-32 h-32 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <img src="./imgs/Mann.jpg" alt="Profile" class="w-30 h-30 rounded-full object-cover" />
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Mann Kachhiya</h3>
+                    <p class="text-blue-600 font-semibold mb-4">Founder & CEO</p>
+                    <p class="text-gray-600 mb-6">
+                        Visionary leader with 3+ years of project experience in technology and Web development. 
+                        Passionate about delivering innovative solutions that drive success.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="https://www.linkedin.com/in/mann-kachhiya/" class="text-gray-400 hover:text-green-600 transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://mannkachhiya.github.io/" class="text-gray-400 hover:text-blue-600 transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="mailto:mannkapatel1@gmail.com" class="text-gray-400 hover:text-green-600 transition-colors">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="team-card rounded-xl p-8 text-center card-shadow">
+                    <div class="w-32 h-32 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <img src="./imgs/Sanket.jpg" alt="Profile" class="w-30 h-30 rounded-full object-cover" />
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Sanket Prajapati</h3>
+                    <p class="text-green-600 font-semibold mb-4">Co-Founder & CTO</p>
+                    <p class="text-gray-600 mb-6">
+                        Technical expert with deep expertise in modern web technologies and software architecture. 
+                        Leads our development team with innovation and precision.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="https://www.linkedin.com/in/sanket-prajapati27/" class="text-gray-400 hover:text-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="mailto:sanket2742003@gmail.com" class="text-gray-400 hover:text-blue-600 transition-colors">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="team-card rounded-xl p-8 text-center card-shadow">
+                    <div class="w-32 h-32 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Our Expert Team</h3>
+                    <p class="text-purple-600 font-semibold mb-4">10+ Skilled Professionals</p>
+                    <p class="text-gray-600 mb-6">
+                        Our diverse team includes full-stack developers, UI/UX designers, project managers, 
+                        and quality assurance specialists working together to deliver excellence.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <span class="text-gray-400">
+                            <i class="fas fa-code text-xl"></i>
+                        </span>
+                        <span class="text-gray-400">
+                            <i class="fas fa-paint-brush text-xl"></i>
+                        </span>
+                        <span class="text-gray-400">
+                            <i class="fas fa-project-diagram text-xl"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <h3 class="text-2xl font-bold text-gray-800 mb-8">Why Choose Our Team?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-award text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Expert Skills</h4>
+                        <p class="text-gray-600">Our team consists of highly skilled professionals with proven expertise in modern technologies.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-handshake text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Collaborative Approach</h4>
+                        <p class="text-gray-600">We work closely with clients to understand their needs and deliver tailored solutions.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clock text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Timely Delivery</h4>
+                        <p class="text-gray-600">We pride ourselves on meeting deadlines and delivering high-quality results on time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-bg py-20 px-6 text-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 fade-in">
+                    Get In <span class="text-green-400">Touch</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto fade-in">
+                    Ready to start your next project? Contact us today and let's bring your vision to life
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="slide-in">
+                    <h3 class="text-2xl font-bold mb-6">Let's Start a Conversation</h3>
+                    <p class="text-gray-300 mb-8">
+                        We're here to help you transform your ideas into powerful digital solutions. 
+                        Reach out to us and let's discuss how we can help grow your business.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Phone</h4>
+                                <p class="text-gray-300">+91 76009 78440</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-yellow-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Business Hours</h4>
+                                <p class="text-gray-300">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-semibold mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <!--a href="#" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors">
+                                <i class="fab fa-facebook text-white"></i>
+                        </a-->
+                            <a href="https://x.com/TechExzakt/" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                                <i class="fab fa-twitter text-white"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/TechExzakt/" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </a>
+                            <a href="https://www.instagram.com/TechExzakt/" class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors">
+                                <i class="fab fa-instagram text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script type="text/javascript">
+  var submitted = false;
+</script>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+  onload="if(submitted) { 
+    alert('Thank you for your message! We will get back to you soon..'); 
+    window.location.reload(); 
+  }">
+</iframe>
+
+
+
+                <div class="slide-in">
+                    <div class="bg-gray-800 rounded-xl p-8 card-shadow">
+                        <h3 class="text-2xl font-bold mb-6">Send us a Message</h3>
+                        <form class="space-y-6" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScEyPCADAALvTNZJowNH3iMQefipjejsCWzBqYsPyDz1gUAXw/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true" id="form1">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Your Name <span style="color: red;">*</span></label>
+                                    <input type="text" name="entry.1529527775" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="Your Name" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Phone <span style="color: red;">*</span></label>
+                                <div class="flex items-center">
+                                      <span class="px-3 py-3 bg-gray-600 text-white rounded-l-lg">+91</span>
+                                          <input type="text" name="entry.1621108615" maxlength="10" pattern="\d{10}" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-r-lg focus:border-green-500 focus:outline-none text-white" placeholder="9876543210" required>
+                                </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Email <span style="color: red;">*</span></label>
+                                <input type="email" name="entry.804126154" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="Email@gmail.com" required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Subject <span style="color: red;">*</span></label>
+                                <select class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" required>
+                                    <option value="web-development">Web Development</option>
+                                    <option value="logo-design">Logo Design</option>
+                                    <option value="brochure-design">Brochure Design</option>
+                                    <option value="packaging-design">Packaging Design</option>
+                                    <option value="business-cards">Business Cards</option>
+                                    <option value="general-inquiry">General Inquiry</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Message</label>
+                                <textarea rows="4" name="entry.346645786" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:border-green-500 focus:outline-none text-white" placeholder="Tell us about your project..."></textarea>
+                            </div>
+                            <input type="hidden" id="States" name="entry.930018570" value="1">
+                            <button type="submit" class="btn-primary w-full py-3 rounded-lg font-semibold text-white">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="./imgs/logo_neon.png" alt="Tech Exzakt IT Solutions" class="h-12 w-auto mb-4">
+                    <p class="text-gray-400 mb-4">
+                        Leading web development company delivering innovative digital solutions with precision and expertise.
+                    </p>
+                    <div class="flex space-x-4">
+                        <!--a href="#" class="text-gray-400 hover:text-green-400 transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                    </a-->
+                        <a href="https://x.com/TechExzakt" class="text-gray-400 hover:text-green-400 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/TechExzakt/" class="text-gray-400 hover:text-green-400 transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/TechExzakt/" class="text-gray-400 hover:text-green-400 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Web Development</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Logo Design</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Brochure Design</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Packaging Design</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Business Cards</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-green-400 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Our Team</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Portfolio</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-green-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2"></i>
+                            +91 76009 78440
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-2"></i>
+                            Mon - Fri: 9:00 AM - 6:00 PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2024 Tech Exzakt IT Solutions. All rights reserved. | Designed by Mann Kachhiya</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTop" class="fixed bottom-6 right-6 bg-green-600 hover:bg-green-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("form1");
+
+    // This container will hold dynamically added hidden inputs
+    const hiddenInputContainer = document.createElement("div");
+    hiddenInputContainer.id = "hidden-inputs";
+    form.appendChild(hiddenInputContainer);
+
+    function updateHiddenInputs() {
+        // Clear previous hidden inputs
+        hiddenInputContainer.innerHTML = "";
+
+        // Find all selected items with the class `.item.checked`
+        const checkedItems = document.querySelectorAll(".item.checked");
+
+        if (checkedItems.length > 0) {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = "entry.1599511640"; // Replace with your actual Google Form entry ID
+            input.value = Array.from(checkedItems)
+                .map(item => item.getAttribute("data-value"))
+                .join(", ");
+            hiddenInputContainer.appendChild(input);
+        }
+    }
+
+    // Before form submission, update the hidden inputs
+    form.addEventListener("submit", function () {
+        updateHiddenInputs();
+    });
+});
+</script>
+
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('open');
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('open', !isOpen);
+            menuToggle.setAttribute('aria-expanded', !isOpen);
+            menuToggle.innerHTML = !isOpen ? '<i class="fas fa-times text-xl"></i>' : '<i class="fas fa-bars text-xl"></i>';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu after clicking a link
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuToggle.innerHTML = '<i class="fas fa-bars text-xl"></i>';
+                }
+            });
+        });
+
+        // Scroll to top functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('opacity-100');
+                scrollTopBtn.classList.remove('opacity-0', 'invisible');
+            } else {
+                scrollTopBtn.classList.remove('opacity-100');
+                scrollTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .team-card, .project-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter animation
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+                }
+            }, 16);
+        }
+
+        // Animate counters when in view
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.textContent);
+                    animateCounter(counter, target);
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter').forEach(counter => {
+            counterObserver.observe(counter);
+        });
+
+        // Modal functionality
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal(modal.id);
+                }
+            });
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal').forEach(modal => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+
+    </script>
+</body>
+</html>
